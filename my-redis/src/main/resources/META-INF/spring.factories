@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.zzl.myredis.config.CacheConfig,\
+com.zzl.myredis.utils.SpringUtils
