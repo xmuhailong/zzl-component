@@ -17,6 +17,10 @@
     <packaging>jar</packaging>
 
     <dependencies>
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>-->
         <!-- spring boot redis 缓存引入 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

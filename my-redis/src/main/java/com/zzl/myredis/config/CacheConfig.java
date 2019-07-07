@@ -3,6 +3,7 @@ package com.zzl.myredis.config;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.cache.RedisCacheWriter;
+import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
@@ -30,6 +32,21 @@ import java.lang.reflect.Method;
 // 启用缓存
 @EnableCaching
 public class CacheConfig extends CachingConfigurerSupport {
+
+    // 从application.yml取得redis的host地址
+    @Value("${spring.redis.host}")
+    private String redisHost;
+
+    // 从application.yml取得redis的端口号
+    @Value("${spring.redis.port}")
+    private Integer redisPort;
+
+    @Bean
+    public LettuceConnectionFactory LettuceConnectionFactory() {
+        RedisStandaloneConfiguration configuration =
+                new RedisStandaloneConfiguration(redisHost, redisPort);
+        return new LettuceConnectionFactory(configuration);
+    }
 
     /**
      * 自定义缓存key的生成策略。默认的生成策略是看不懂的(乱码内容) 通过Spring 的依赖注入特性进行自定义的配置注入并且此类是一个配置类可以更多程度的自定义配置
@@ -51,11 +68,6 @@ public class CacheConfig extends CachingConfigurerSupport {
                 return sb.toString();
             }
         };
-    }
-
-    @Bean
-    public LettuceConnectionFactory factory() {
-        return new LettuceConnectionFactory();
     }
 
     /**
