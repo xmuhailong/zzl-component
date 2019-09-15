@@ -9,18 +9,18 @@ import com.zzl.base.enums.ResultEnum;
  */
 public class AppException extends RuntimeException{
 
-    private Integer code;
+    private String code;
 
     public AppException(ResultEnum resultEnum) {
         super(resultEnum.getMsg());
         this.code = resultEnum.getCode();
     }
 
-    public Integer getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(Integer code) {
+    public void setCode(String code) {
         this.code = code;
     }
 }

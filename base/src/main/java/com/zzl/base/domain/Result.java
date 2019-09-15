@@ -7,7 +7,7 @@ package com.zzl.base.domain;
 public class Result<T> {
 
     /** 错误码. */
-    private Integer code;
+    private String code;
 
     /** 提示信息. */
     private String msg;
@@ -15,11 +15,11 @@ public class Result<T> {
     /** 具体的内容. */
     private T data;
 
-    public Integer getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(Integer code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
