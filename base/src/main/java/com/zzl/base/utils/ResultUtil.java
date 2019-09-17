@@ -2,6 +2,7 @@ package com.zzl.base.utils;
 
 
 import com.zzl.base.domain.Result;
+import com.zzl.base.enums.ResultEnum;
 
 /**
  * @author zhaozhonglong
@@ -11,20 +12,20 @@ public class ResultUtil {
 
     public static Result success(Object object) {
         Result result = new Result();
-        result.setCode("200");
-        result.setMsg("成功");
-        result.setData(object);
-        return result;
-    }
 
-    public static Result success() {
-        return success(null);
+        result.setCode(ResultEnum.SUCCESS.getCode());
+        result.setMsg(ResultEnum.SUCCESS.getMsg());
+        result.setData(object);
+
+        return result;
     }
 
     public static Result error(String code, String msg) {
         Result result = new Result();
+
         result.setCode(code);
         result.setMsg(msg);
+
         return result;
     }
 }

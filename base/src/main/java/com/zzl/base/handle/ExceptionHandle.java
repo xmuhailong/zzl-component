@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
+ * 异常统一处理
  * @author zhaozhonglong
  * 2019-06-07 16:10
  */
