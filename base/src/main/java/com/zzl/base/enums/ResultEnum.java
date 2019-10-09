@@ -9,6 +9,7 @@ public enum ResultEnum {
     SUCCESS("200", "成功"),
     PRIMARY_SCHOOL("100", "我猜你可能还在上小学"),
     MIDDLE_SCHOOL("101", "你可能在上初中"),
+    CREATE_PASSWORD_ERROR("2000", "创建用户密码出错"),
     ;
 
     private String code;
