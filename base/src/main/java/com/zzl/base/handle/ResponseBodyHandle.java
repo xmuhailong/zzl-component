@@ -1,6 +1,8 @@
 package com.zzl.base.handle;
 
 import com.zzl.base.domain.Result;
+import com.zzl.base.enums.ResultEnum;
+import com.zzl.base.exception.AppException;
 import com.zzl.base.utils.ResultUtil;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 /**
- * 返回报文格式处理
+ * 返回报文格式处理-只针对controller处理
  * @author zhaozhonglong
  * @version 1.0.0
  * @date 2019/9/17 下午8:21
