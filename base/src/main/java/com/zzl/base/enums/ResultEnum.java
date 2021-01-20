@@ -16,6 +16,8 @@ public enum ResultEnum {
 
     // 2000错误为业务逻辑错误
     CREATE_PASSWORD_ERROR("2000", "创建用户密码出错"),
+    USERNAME_OR_PASSWORD_ERROR("2001", "用户名或密码错误"),
+    CLIENT_AUTHENTICATION_FAILED("2002", "客户端认证失败"),
     ;
 
     private String code;
